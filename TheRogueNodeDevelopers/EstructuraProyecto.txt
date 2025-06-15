@@ -1,0 +1,22 @@
+redes_dev_site/
+├── manage.py
+├── requirements.txt
+└── redes_dev_site/
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    ├── wsgi.py
+    ├── static/
+    ├── templates/
+    │   ├── base.html
+    │   ├── home.html
+    │   ├── registration/
+    │   │   ├── login.html
+    │   │   ├── register.html
+    │   │   └── ...
+    └── apps/
+        ├── __init__.py
+        ├── core/               # App principal
+        ├── accounts/           # Autenticación extendida
+        ├── forum/              # Foro de desarrolladores
+        └── docs/               # Documentación

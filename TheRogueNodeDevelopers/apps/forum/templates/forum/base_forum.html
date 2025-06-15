@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            {% block forum_content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Acciones
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'forum:topic_create' %}" class="btn btn-success btn-sm">
+                        Nuevo Tema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
