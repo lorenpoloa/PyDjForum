@@ -1,4 +1,4 @@
-Django==5.2.3
+Django
 django-crispy-forms==2.4
 markdown2==2.5.3
-django-allauth==65.9.0  # Opcional para autenticación social
+django-allauth==65.9.0

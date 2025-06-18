@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-# Importación compatible con Pyto
+from core import views as core_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path('', core_views.home, name='home'),
-#    path('accounts/', include('TheRogueNodeDevelopers.apps.accounts.urls')),
-#    path('forum/', include('apps.forum.urls')),
-#    path('docs/', include('apps.docs.urls')),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-]
+    path('', core_views.home, name='home'),
+    path('accounts/', include('accounts.urls')),
+    path('forum/', include('forum.urls')),
+    path('docs/', include('docs.urls')),
+    # path('login/', auth_views.LoginView.as_view(), name='login'),
+    # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,28 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes Dev Site - {% block title %}{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!-- Bootstrap CSS (añade data-theme) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" data-theme="light" id="bootstrap-theme">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Tu archivo de temas (debe cargarse DESPUÉS de Bootstrap) -->
+    <link rel="stylesheet" href="{% static 'css/dark-theme.css' %}">
+
+    <!-- Tu archivo de temas (debe cargarse DESPUÉS de Bootstrap) -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <title>TheRogueNodeDevelopers - {% block title %}{% endblock %}</title>
 </head>
 <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Switch de tema -->
+        <div class="theme-switcher" >
+            <div class="form-check form-switch position-relative">
+                <input class="form-check-input" type="checkbox" id="theme-toggle">
+                <span id="theme-icon" class="bi bi-moon-fill"></span>
+            </div>
+        </div>
+
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Redes Dev</a>
+            <a class="navbar-brand" href="{% url 'home' %}">TheRogueNodeDevelopers</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'forum:topic_list' %}">Foro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'docs:documentation_list' %}">Documentación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'forum:category_list' %}">Foro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Documentación</a></li>
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'accounts:register' %}">Registrarse</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -33,6 +59,48 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript para el tema -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            
+            // Aplicar tema guardado
+            applyTheme(savedTheme);
+            
+            // Configurar el interruptor
+            if (toggle) {
+                toggle.checked = savedTheme === 'dark';
+                toggle.addEventListener('change', function() {
+                    const newTheme = this.checked ? 'dark' : 'light';
+                    applyTheme(newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+            
+            function applyTheme(theme) {
+                // Actualizar atributo data-theme
+                document.documentElement.setAttribute('data-theme', theme);
+    
+                // Actualizar Bootstrap
+                const bootstrapTheme = document.getElementById('bootstrap-theme');
+                
+                if (bootstrapTheme) {
+                    bootstrapTheme.setAttribute('data-theme', theme);
+                    bootstrapTheme.href = `https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?theme=${theme}`;
+                }
+    
+                // Actualizar icono (cambia solo esta parte)
+                const themeIcon = document.getElementById('theme-icon');
+
+                if (themeIcon) {
+                    themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+                    themeIcon.style.color = theme === 'dark' ? '#6c757d' : '#6c757d';
+                }
+            }
+    });
+    </script>
 </body>
+
 </html>

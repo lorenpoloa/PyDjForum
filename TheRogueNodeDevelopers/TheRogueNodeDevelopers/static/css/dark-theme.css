@@ -1,0 +1,103 @@
+/* Tema oscuro - Sobreescribe Bootstrap */
+[data-theme="dark"] {
+    /* Colores base */
+    --bs-body-bg: #121212;
+    --bs-body-color: #e9ecef;
+    --bs-border-color: #495057;
+    --bs-btn-bg: #ff0066;
+    --accent-color: #ff0066;
+
+    /* Componentes específicos */
+    --bs-card-bg: #1e1e1e;
+    --bs-light: #212529;
+    --bs-dark: #f8f9fa;
+}
+
+/* Aplicación de variables */
+[data-theme="dark"] body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--bs-light) !important;
+}
+
+[data-theme="dark"] .text-dark {
+    color: var(--bs-dark) !important;
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--bs-card-bg);
+    border-color: var(--bs-border-color);
+}
+
+[data-theme="dark"] .form-control {
+    background-color: #2d2d2d;
+    border-color: var(--bs-border-color);
+    color: var(--bs-body-color);
+}
+
+/* Navbar oscura */
+[data-theme="dark"] .navbar {
+    --bs-navbar-color: rgba(255, 255, 255, 0.75);
+    --bs-navbar-hover-color: rgba(255, 255, 255, 0.9);
+    --bs-navbar-brand-color: white;
+    background-color: #1a1a1a !important;
+}
+
+/* Botones */
+[data-theme="dark"] .btn {
+    --bs-btn-bg: #ff0066;
+}
+
+[data-theme="dark"] .btn {
+    --bs-btn-bg: #ff0066;
+    --bs-btn-border-color: #6c757d;
+    --bs-btn-hover-bg: #6c757d;
+
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+    --bs-btn-bg: #121212;
+    --bs-btn-color: #ff0066;
+    --bs-btn-border-color: #6c757d;
+    --bs-btn-hover-bg: #6c757d;
+}
+
+
+.theme-switcher {
+    z-index: 1000;
+}
+
+[data-theme="dark"] .theme-switcher {
+    --bs-form-check-bg: #2d2d2d;
+}
+
+[data-theme="dark"] .form-check-input {
+    background-color: #495057;
+    border-color: #6c757d;
+}
+
+[data-theme="dark"] .form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+[data-theme="dark"] .dropdown-menu {
+    --bs-dropdown-bg: #2d2d2d;
+    --bs-dropdown-link-color: #e9ecef;
+    --bs-dropdown-link-hover-color: #fff;
+    --bs-dropdown-link-hover-bg: #495057;
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: #1e1e1e;
+    color: #e9ecef;
+}
+
+[data-theme="dark"] .table {
+    --bs-table-color: #e9ecef;
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+}

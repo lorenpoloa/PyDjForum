@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Inicio - TheRogueNode Developers Forum{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-3">TheRogueNode Developers Forum</h1>
+            <p class="lead mb-4">Plataforma de colaboración para el desarrollo de la red TheRogueNode</p>
+            
+            {% if user.is_authenticated %}
+                <a href="{% url 'forum:category_list' %}" class="btn btn-primary btn-lg px-4 me-2">
+                    Ir al Foro <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-lg px-4 me-2">
+                    Iniciar Sesión <i class="bi bi-box-arrow-in-right ms-2"></i>
+                </a>
+                <a href="{% url 'accounts:register' %}" class="btn btn-outline-secondary btn-lg px-4">
+                    Registrarse
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+        <img src="{% static 'images/developer-collab.png' %}" alt="Desarrolladores colaborando" class="img-fluid d-none d-lg-block">
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row g-4 py-5">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-chat-square-text fs-1 text-primary mb-3"></i>
+                    <h3>Foro de Discusión</h3>
+                    <p>Participa en conversaciones técnicas y resuelve problemas colaborativamente.</p>
+                    <a href="{% url 'forum:category_list' %}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-journal-bookmark fs-1 text-primary mb-3"></i>
+                    <h3>Documentación</h3>
+                    <p>Accede a la documentación técnica del proyecto y comparte conocimiento.</p>
+                    <a href="" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-people fs-1 text-primary mb-3"></i>
+                    <h3>Equipo</h3>
+                    <p>Conecta con otros desarrolladores y mantente actualizado.</p>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="bg-light p-4 rounded-3 mb-5">
+        <h2 class="mb-4"><i class="bi bi-activity me-2"></i> Actividad Reciente</h2>
+        
+        <div class="list-group">
+            {% for topic in recent_topics %}
+            <a href="{% url 'forum:topic_detail' topic.slug %}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ topic.title }}</h5>
+                    <small class="text-muted">{{ topic.created_at|timesince }} ago</small>
+                </div>
+                <p class="mb-1 text-muted">En {{ topic.category.name }}</p>
+                <small class="text-muted">Por {{ topic.author.username }}</small>
+            </a>
+            {% empty %}
+            <div class="alert alert-info">No hay actividad reciente</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Efecto hover para las tarjetas de características
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+        card.style.transition = 'transform 0.2s ease';
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+</script>
+{% endblock %}

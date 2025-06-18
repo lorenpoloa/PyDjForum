@@ -1,0 +1,112 @@
+:root {
+    /* Colores claros (tema por defecto) */
+    --primary-bg: hsl(0, 0%, 100%);
+    --secondary-bg: #f8f9fa;
+    --text-color: #212529;
+    --accent-color: #ff0066;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --bs-btn-bg: #ff0066;
+}
+
+[data-theme="dark"] {
+    /* Colores oscuros */
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --text-color: #f8f9fa;
+    --accent-color: #ff0066;
+    --card-bg: #333;
+    --border-color: #0167ff;
+    --bs-btn-bg: #ff0066;
+    
+}
+[data-theme="light"] {
+    /* Colores oscuros */
+    --primary-bg: #fff;
+    --secondary-bg: #1e1e1e;
+    --accent-color: #ff0066;
+    --card-bg: #aaa;
+    --border-color: #495057;
+    --bs-btn-bg: #ff0066;
+}
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.navbar {
+    background-color: var(--secondary-bg) !important;
+}
+
+/* Switch de tema */
+.theme-switcher {
+    position: absolute;
+    right: 2%;
+    top:30%;
+
+}
+/* Estilo para el icono */
+#theme-icon {
+    position: relative;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    pointer-events: none; /* Evita que interfiera con el click del switch */
+}
+
+/* Colores específicos para cada tema */
+[data-theme="light"] #theme-icon {
+    color: #6c757d; /* Gris para el icono de luna en tema claro */
+}
+
+[data-theme="dark"] #theme-icon {
+    color: #6c757d; 
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#theme-label {
+    margin-left: 10px;
+    color: var(--text-color);
+}
