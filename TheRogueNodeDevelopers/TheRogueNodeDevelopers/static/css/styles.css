@@ -1,22 +1,13 @@
-:root {
-    /* Colores claros (tema por defecto) */
-    --primary-bg: hsl(0, 0%, 100%);
-    --secondary-bg: #f8f9fa;
-    --text-color: #212529;
-    --accent-color: #ff0066;
-    --card-bg: #ffffff;
-    --border-color: #dee2e6;
-    --bs-btn-bg: #ff0066;
-}
+
 
 [data-theme="dark"] {
     /* Colores oscuros */
     --primary-bg: #121212;
-    --secondary-bg: #1e1e1e;
+    --secondary-bg: #d4d4d4;
     --text-color: #f8f9fa;
     --accent-color: #ff0066;
     --card-bg: #333;
-    --border-color: #0167ff;
+    --border-color: #495057;
     --bs-btn-bg: #ff0066;
     
 }
@@ -25,7 +16,7 @@
     --primary-bg: #fff;
     --secondary-bg: #1e1e1e;
     --accent-color: #ff0066;
-    --card-bg: #aaa;
+    --card-bg: #eee;
     --border-color: #495057;
     --bs-btn-bg: #ff0066;
 }
@@ -50,7 +41,33 @@ card {
     top:30%;
 
 }
+
+
+[data-theme="light"] .btn {
+    background-color: #003380;
+    border-color: #003380;
+}
+
+[data-theme="light"] .btn-outline-secondary {
+    background-color: var(--primary-bg);
+    border-color: var(--border-color);
+}
+
+.btn:hover {
+    background-color: #444444;
+    border-color: #070707;
+}
+
 /* Estilo para el icono */
+[data-theme="light"] .text-primary {
+    color: #003380 !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #ff0066 !important;
+}
+
+
 #theme-icon {
     position: relative;
     transform: translateY(-50%);
@@ -109,4 +126,81 @@ input:checked + .slider:before {
 #theme-label {
     margin-left: 10px;
     color: var(--text-color);
+}
+
+/* Estilos para formularios del foro */
+.topic-content, .post-content {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Estilos específicos para el editor */
+textarea.form-control {
+    min-height: 150px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* Adaptación para tema oscuro */
+[data-theme="dark"] textarea.form-control {
+    background-color: #2d2d2d !important;
+}
+
+/* Estilos para categorías */
+.list-group-item-action:hover {
+    background-color: var(--secondary-bg);
+}
+
+.badge.bg-secondary {
+    background-color: var(--accent-color) !important;
+}
+
+/* Paginación */
+.page-item.active .page-link {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.page-link {
+    color: var(--accent-color);
+}
+
+/* Adaptación para tema oscuro */
+[data-theme="dark"] .card-header.bg-primary {
+    background-color: #1a365d !important;
+}
+
+[data-theme="dark"] .list-group-item {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+/* Adaptación para tema claro */
+[data-theme="dark"] .card-header.bg-primary {
+    background-color: #1a365d !important;
+}
+[data-theme="light"] .list-group-item {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.vLargeTextField {
+    border-radius: 2%;
+    border-style:solid;
+    border-width: thin;
+
+}
+
+[data-theme="dark"] .vLargeTextField {
+    background-color: #2c2c2c !important;
+    border-color: #1d1d1d;
+}
+
+[data-theme="light"] .vLargeTextField {
+    background-color: #ffffff !important;
+    border-color: #d4d4d4;
+
 }

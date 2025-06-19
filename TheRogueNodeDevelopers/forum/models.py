@@ -1,7 +1,17 @@
 from django.db import models
+from django import forms
 from accounts.models import CustomUser
 from django.urls import reverse
 from django.utils.text import slugify
+from pagedown.widgets import AdminPagedownWidget
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True)
+    color = models.CharField(max_length=7, default='#6c757d')  # Código HEX color
+
+    def __str__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -26,6 +36,7 @@ class Category(models.Model):
         return reverse('forum:category_detail', kwargs={'slug': self.slug})
 
 class Topic(models.Model):
+    tags = models.ManyToManyField(Tag, blank=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True)
     content = models.TextField()

@@ -1,0 +1,51 @@
+{% extends "forum/base_forum.html" %}
+{% load crispy_forms_tags %}
+
+{% block forum_content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5>Responder al tema: {{ topic.title }}</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="{% url 'forum:topic_detail' topic.slug %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-send"></i> Publicar Respuesta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h6>Vista previa del tema</h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex mb-3">
+                        <div class="flex-shrink-0">
+                            <img src="{{ topic.author.avatar.url|default:'/static/images/default_avatar.png' }}" 
+                                 class="rounded-circle" width="50" alt="{{ topic.author.username }}">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5>{{ topic.title }}</h5>
+                            <p class="text-muted small">Publicado por {{ topic.author.username }} el {{ topic.created_at|date:"DATETIME_FORMAT" }}</p>
+                            <div class="topic-content">
+                                {{ topic.content|linebreaks }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

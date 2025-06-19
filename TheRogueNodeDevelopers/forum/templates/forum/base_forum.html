@@ -12,9 +12,31 @@
                     Acciones
                 </div>
                 <div class="card-body">
-                    <a href="{% url 'forum:topic_create' %}" class="btn btn-success btn-sm">
-                        Nuevo Tema
+                    <a href="{% url 'forum:topic_create' %}?category={{ category.id }}" 
+                       class="btn btn-primary w-100 mb-2">
+                        <i class="bi bi-plus-circle"></i> Nuevo Tema
                     </a>
+                    <a href="{% url 'forum:category_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left"></i> Todas las categorías
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    Estadísticas
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Temas totales
+                            <span class="badge bg-primary rounded-pill">{{ category.topic_count }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Respuestas totales
+                            <span class="badge bg-primary rounded-pill">{{ category.post_count }}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -19,7 +19,9 @@
     <!-- Tu archivo de temas (debe cargarse DESPUÉS de Bootstrap) -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+    <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
 
+    
     <title>TheRogueNodeDevelopers - {% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -44,8 +46,8 @@
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Perfil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Cerrar Sesión</a></li>
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'accounts:register' %}">Registrarse</a></li>

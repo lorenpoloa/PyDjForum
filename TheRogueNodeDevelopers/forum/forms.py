@@ -1,5 +1,6 @@
 from django import forms
-from .models import Topic, Post
+from .models import Topic, Post, Category, Tag
+from pagedown.widgets import AdminPagedownWidget
 
 class TopicForm(forms.ModelForm):
     class Meta:
@@ -10,15 +11,26 @@ class TopicForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-select'}),
         }
-
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['content']
         widgets = {
-            'content': forms.Textarea(attrs={
-                'rows': 4,
-                'class': 'form-control',
-                'placeholder': 'Escribe tu respuesta...'
-            }),
+            'content': AdminPagedownWidget(
+                attrs={'rows': 10, 'placeholder': 'Escribe tu contenido en Markdown...'}
+            ),
         }
+
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(required=False)
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(), 
+        required=False
+    )
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        required=False,
+        widget=forms.CheckboxSelectMultiple
+    )

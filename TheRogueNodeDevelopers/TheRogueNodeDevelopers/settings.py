@@ -39,14 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'crispy_bootstrap5',
+    'pagedown.apps.PagedownConfig',
     'forum',
     'core',
     'docs',
 ]
+# Configuración específica de crispy-forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+#Markdown Conf
+MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
+
+
+#AUTH conf
 AUTH_USER_MODEL = 'accounts.CustomUser'  # Usando nuestro modelo personalizado
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'accounts:login'

@@ -1,8 +1,9 @@
 {% extends 'forum/base_forum.html' %}
+{% load markdown_tags %}
 
 {% block forum_content %}
 <div class="card mb-4">
-    <div class="card-header bg-primary text-white">
+    <div class="card-header bg-dark text-white">
         <div class="d-flex justify-content-between align-items-center">
             <h4>{{ topic.title }}</h4>
             <span class="badge bg-light text-dark">
@@ -19,7 +20,7 @@
             <div class="flex-grow-1">
                 <h5 class="mt-0">{{ topic.author.username }}</h5>
                 <p class="text-muted small">{{ topic.created_at|date:"DATETIME_FORMAT" }}</p>
-                <div class="topic-content">
+                <div class="topic-content bg-light">
                     {{ topic.content|linebreaks }}
                 </div>
             </div>
@@ -44,7 +45,7 @@
                     {% endif %}
                 </p>
                 <div class="post-content">
-                    {{ post.content|linebreaks }}
+                    {{ post.content|markdown|safe }}
                 </div>
             </div>
         </div>
