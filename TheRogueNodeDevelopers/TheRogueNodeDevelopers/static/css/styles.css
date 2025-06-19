@@ -170,7 +170,7 @@ textarea.form-control {
 
 /* Adaptación para tema oscuro */
 [data-theme="dark"] .card-header.bg-primary {
-    background-color: #1a365d !important;
+    background-color: #ff0066 !important;
 }
 
 [data-theme="dark"] .list-group-item {
@@ -179,8 +179,8 @@ textarea.form-control {
 }
 
 /* Adaptación para tema claro */
-[data-theme="dark"] .card-header.bg-primary {
-    background-color: #1a365d !important;
+[data-theme="ligh"] .card-header.bg-primary {
+    background-color: #003380 !important;
 }
 [data-theme="light"] .list-group-item {
     background-color: var(--card-bg);

@@ -1,29 +1,38 @@
 from django.contrib.auth import views as auth_views
+from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from .models import CustomUser
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'accounts/signup.html'
 
+
 class ProfileView(LoginRequiredMixin, UpdateView):
     model = CustomUser
     fields = ['username', 'email', 'avatar', 'bio', 'role', 'github_profile']
     template_name = 'accounts/profile.html'
-    success_url = reverse_lazy('profile')
-    
+    success_url = reverse_lazy('accounts:profile')
+
     def get_object(self):
         return self.request.user
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Agrega cualquier contexto adicional que necesites
+        return context
+
+
+
 
 # Vistas basadas en funciones para mayor control
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib import messages
+
 
 def custom_login(request):
     if request.method == 'POST':
@@ -42,5 +51,12 @@ def custom_login(request):
                 return redirect('home')
     else:
         form = CustomAuthenticationForm()
-    
+
     return render(request, 'accounts/login.html', {'form': form})
+
+
+
+def custom_logout(request):
+    request.session.flush()
+    logout(request)
+    return render(request, 'accounts/logout.html')  # Cambia esto por tu URL deseada

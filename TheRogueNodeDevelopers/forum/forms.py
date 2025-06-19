@@ -1,6 +1,6 @@
 from django import forms
 from .models import Topic, Post, Category, Tag
-from pagedown.widgets import AdminPagedownWidget
+from pagedown.widgets import PagedownWidget
 
 class TopicForm(forms.ModelForm):
     class Meta:
@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['content']
         widgets = {
-            'content': AdminPagedownWidget(
+            'content': PagedownWidget(
                 attrs={'rows': 10, 'placeholder': 'Escribe tu contenido en Markdown...'}
             ),
         }

@@ -3,7 +3,7 @@ from django import forms
 from accounts.models import CustomUser
 from django.urls import reverse
 from django.utils.text import slugify
-from pagedown.widgets import AdminPagedownWidget
+#from pagedown.widgets import AdminPagedownWidget
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)

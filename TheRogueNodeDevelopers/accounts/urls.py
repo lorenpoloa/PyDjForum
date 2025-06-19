@@ -7,7 +7,7 @@ app_name = 'accounts'
 urlpatterns = [
     path('login/', views.custom_login, name='login'),  # Ahora en /accounts/login/
     path('register/', views.SignUpView.as_view(), name='register'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/',views.custom_logout, name='logout'),
     path('profile/', views.ProfileView.as_view(), name='profile'),
     
     # Recuperación de contraseña
