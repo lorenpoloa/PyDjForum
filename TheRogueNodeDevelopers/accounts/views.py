@@ -3,10 +3,12 @@ from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-from .forms import CustomUserCreationForm, CustomAuthenticationForm
+from .forms import CustomUserCreationForm, CustomAuthenticationForm, CustomUserChangeForm
 from .models import CustomUser
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.decorators import login_required
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
@@ -14,26 +16,27 @@ class SignUpView(CreateView):
     template_name = 'accounts/signup.html'
 
 
+
 class ProfileView(LoginRequiredMixin, UpdateView):
     model = CustomUser
     fields = ['username', 'email', 'avatar', 'bio', 'role', 'github_profile']
     template_name = 'accounts/profile.html'
     success_url = reverse_lazy('accounts:profile')
-
+    
     def get_object(self):
         return self.request.user
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Agrega cualquier contexto adicional que necesites
-        return context
-
+    def form_valid(self, form):
+        messages.success(self.request, 'Perfil actualizado correctamente')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, 'Error al actualizar el perfil. Verifica los datos.')
+        return super().form_invalid(self, form)
 
 
 
 # Vistas basadas en funciones para mayor control
-
-
 def custom_login(request):
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, data=request.POST)

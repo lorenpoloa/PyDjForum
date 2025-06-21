@@ -9,7 +9,15 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
+from django import forms
+from .models import CustomUser
 
+class CustomUserChangeForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'email', 'avatar', 'bio', 'role', 'github_profile']
+
+        
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(
         label=_("Email"),
