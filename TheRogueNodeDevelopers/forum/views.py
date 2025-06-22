@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from .models import Category, Topic, Post
-from .forms import TopicForm, PostForm
+from .forms import TopicForm, PostForm, SearchForm
 from django.db.models import Q
 
 class CategoryListView(ListView):
@@ -57,9 +57,11 @@ def search(request):
             
         results = queryset.select_related('author', 'category')
     
-    return render(request, 'forum/search.html', {
+    # Renderiza la plantilla base, no search.html
+    return render(request, 'forum/base_forum.html', {
         'form': form,
-        'results': results
+        'results': results,
+        'show_results': True,  # Variable para controlar si se muestran resultados
     })
 
 

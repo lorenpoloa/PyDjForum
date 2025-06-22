@@ -66,3 +66,14 @@
     </div>
 </div>
 {% endblock %}
+
+{% block stats %}
+<div class="card-body">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Respuestas
+            <span class="badge bg-primary rounded-pill">{{ topic.posts.count }}</span>
+        </li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<form method="get" action="{% url 'forum:search' %}">
+<!-- Añade esto donde quieras que aparezca el buscador (ej: sidebar, navbar, etc.) -->
+    <div class="input-group">
+        <input 
+            type="text" 
+            name="query" 
+            class="form-control" 
+            placeholder="Buscar temas..." 
+            value="{{ request.GET.query }}"
+        >
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-search"></i> Buscar
+        </button>
+    </div>
+    
+    <!-- Filtros avanzados (opcional, puedes ocultarlos en un dropdown) -->
+    <div class="mt-2">
+        <select name="category" class="form-select">
+            <option value="">Todas las categorías</option>
+            {% for category in categories %}
+                <option 
+                    value="{{ category.id }}"
+                    {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}
+                >
+                    {{ category.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    
+    <div class="mt-2">
+        <label class="fw-bold">Etiquetas:</label>
+        {% for tag in tags %}
+            <div class="form-check">
+                <input 
+                    type="checkbox" 
+                    name="tags" 
+                    value="{{ tag.id }}"
+                    class="form-check-input"
+                    id="tag-{{ tag.id }}"
+                    {% if tag.id|stringformat:"s" in request.GET.tags %}checked{% endif %}
+                >
+                <label for="tag-{{ tag.id }}" class="form-check-label">{{ tag.name }}</label>
+            </div>
+        {% endfor %}
+    </div>
+</form>

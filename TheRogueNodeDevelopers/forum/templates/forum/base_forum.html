@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8">
-            {% block forum_content %}{% endblock %}
+            {% block forum_content %}
+                {% if show_results %}
+                    {% include 'forum/_search_results.html' %}
+                {% endif %}
+            {% endblock %}
         </div>
         <div class="col-md-4">
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Buscador
+                </div>
+                <div style="margin: 4%;">{% include 'forum/_search_form.html' %}</div>
+                
+            </div>
+
             <div class="card mb-4">
                 <div class="card-header">
                     Acciones
@@ -21,23 +33,12 @@
                     </a>
                 </div>
             </div>
-            
-            <div class="card">
+
+            <div class="card mb-4">
                 <div class="card-header">
                     Estadísticas
                 </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Temas totales
-                            <span class="badge bg-primary rounded-pill">{{ category.topic_count }}</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Respuestas totales
-                            <span class="badge bg-primary rounded-pill">{{ category.post_count }}</span>
-                        </li>
-                    </ul>
-                </div>
+                {% block stats %}{% endblock %}
             </div>
         </div>
     </div>

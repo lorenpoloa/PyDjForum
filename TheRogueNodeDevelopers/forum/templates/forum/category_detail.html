@@ -52,3 +52,18 @@
                     </div>
                 </div>
 {% endblock %}
+
+{% block stats %}
+<div class="card-body">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Temas totales en {{category.name}}
+            <span class="badge bg-primary rounded-pill">{{ category.topics.count }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Respuestas totales
+            <span class="badge bg-primary rounded-pill">{{ topics.posts.count }}</span>
+        </li>
+    </ul>
+</div>
+{% endblock %}

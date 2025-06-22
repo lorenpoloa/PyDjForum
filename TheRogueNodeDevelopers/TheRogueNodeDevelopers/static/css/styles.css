@@ -396,3 +396,9 @@ body {
 .footer-content {
   padding: 10px;
 }
+
+.rounded-pill {
+
+    background-color: var(--accent-color) !important;
+
+}

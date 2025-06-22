@@ -9,4 +9,5 @@ urlpatterns = [
     path('topic/new/', views.TopicCreateView.as_view(), name='topic_create'),
     path('topic/<slug:slug>/', views.TopicDetailView.as_view(), name='topic_detail'),
     path('topic/<slug:slug>/reply/', views.PostCreateView.as_view(), name='post_create'),
+    path('search/', views.search, name='search'),
 ]
