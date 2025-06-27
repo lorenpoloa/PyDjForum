@@ -1,4 +1,4 @@
-from django.urls import path, reverse_lazy
+from django.urls import path, reverse_lazy, include
 from . import views
 from django.contrib.auth import views as auth_views
 
@@ -6,10 +6,12 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('login/', views.custom_login, name='login'),  # Ahora en /accounts/login/
-    path('register/', views.SignUpView.as_view(), name='register'),
+    path('register/', views.register, name='register'),
     path('logout/',views.custom_logout, name='logout'),
     path('profile/', views.ProfileView.as_view(), name='profile'),
-    
+    #path('generate_captcha_svg/', views.generate_captcha_svg, name='generate_captcha_svg'),
+    path('register/accounts/generate_captcha_svg/', views.generate_captcha_svg, name='generate_captcha_svg'),
+
     # Recuperación de contraseña
     path('password-reset/',
          auth_views.PasswordResetView.as_view(

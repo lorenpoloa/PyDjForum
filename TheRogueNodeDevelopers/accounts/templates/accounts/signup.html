@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %}Registro{% endblock %}
 
 {% block content %}
+<script>  const captchaUrl = "{% url 'accounts:generate_captcha_svg' %}";</script>
+<script src="{% static 'accounts/js/refresh_captcha.js' %}"></script>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
@@ -65,7 +67,32 @@
                                 {% endif %}
                             </div>
                         </div>
-                        
+
+                        <!-- Mostrar solo el SVG generado, sin la imagen original -->
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <h6>Código de verificación</h6>
+                                <label for="{{ form.captcha_input.id_for_label }}" class="form-label">
+                                </label>
+                                <div id="captcha-img-container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="80">
+                                        <text x="20" y="50" font-size="40" fill="black" font-family="Arial">Captcha</text>
+                                    </svg>
+                                </div>
+                                <br>
+                                <h6>Introduzca código de verificación</h6>
+                                {{ form.captcha_input }}
+                                {% if form.captcha_input.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ form.captcha_input.errors.0 }}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Botón para refrescar el captcha -->
+                                <button type="button" class="btn btn-secondary mt-2" id="refresh-captcha">Refrescar Captcha</button>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary w-100 py-2">Registrarse</button>
                     </form>
                     
@@ -79,4 +106,18 @@
         </div>
     </div>
 </div>
+
+<!-- <script>
+    document.getElementById('refresh-captcha').addEventListener('click', function() {
+        // Hacer una solicitud AJAX para obtener una nueva imagen del captcha
+        fetch("{% url 'accounts:generate_captcha_svg' %}")
+            .then(response => response.text())
+            .then(data => {
+                // Insertar el nuevo SVG en el contenedor
+                document.getElementById('captcha-img-container').innerHTML = data;
+            })
+            .catch(error => console.log('Error al refrescar el captcha:', error));
+    });
+</script> -->
+
 {% endblock %}

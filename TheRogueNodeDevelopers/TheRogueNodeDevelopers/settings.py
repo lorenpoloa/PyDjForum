@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'forum',
     'core',
     'docs',
+    # 'captcha',
 ]
 # Configuración específica de crispy-forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -63,6 +64,18 @@ LOGIN_URL = 'accounts:login'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+
+# # Configuración opcional para django-simple-captcha
+# CAPTCHA_LENGTH = 6  # Longitud del código
+# CAPTCHA_FONT_SIZE = 40  # Tamaño de fuente
+# CAPTCHA_IMAGE_SIZE = (200, 50)  # Dimensiones de la imagen
+# CAPTCHA_TIMEOUT = 300  # 5 minutos de validez
+# CAPTCHA_NOISE_FUNCTIONS = [    
+#     'captcha.helpers.noise_arcs',
+#     'captcha.helpers.noise_dots',
+#     ]
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'  # o 'captcha.helpers.math_challenge'
 
 # Para producción:
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -88,9 +101,7 @@ ROOT_URLCONF = 'TheRogueNodeDevelopers.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-        ],
+        'DIRS': [BASE_DIR / "TheRogueNodeDevelopers" / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +122,7 @@ WSGI_APPLICATION = 'TheRogueNodeDevelopers.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR +"/"+ 'db.sqlite3',
+        'NAME': BASE_DIR / "TheRogueNodeDevelopers" / 'db.sqlite3',
     }
 }
 
@@ -149,14 +160,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Para collectstatic
+
+STATIC_ROOT = BASE_DIR /'staticfiles' # Para collectstatic
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR, 'static')
+    BASE_DIR / 'TheRogueNodeDevelopers' / 'static'
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'TheRogueNodeDevelopers' /'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

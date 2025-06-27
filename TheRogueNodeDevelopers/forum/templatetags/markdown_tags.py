@@ -24,13 +24,8 @@ def markdown_format(text):
         '*': ['class', 'id'],
     }
 
-        
-    html = markdown.markdown(text, extensions=MARKDOWN_EXTENSIONS)
-    cleaned_html = clean(html, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES)
-    
-
     # Extensiones opcionales (puedes personalizar)
-    extensions = [
+    MARKDOWN_EXTENSIONS = [
         'fenced_code',          # Bloques de código cercados
         'codehilite',           # Resaltado de sintaxis
         'tables',               # Tablas
@@ -45,11 +40,17 @@ def markdown_format(text):
             'css_class': 'codehilite',
         }
     }
+
+    html = markdown.markdown(text, extensions=MARKDOWN_EXTENSIONS)
+    cleaned_html = clean(html, tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRIBUTES)
+    
+
+    
     
     return mark_safe(
         markdown.markdown(
             text,
-            extensions=extensions,
+            extensions=MARKDOWN_EXTENSIONS,
             extension_configs=extension_configs,
             output_format='html5'
         )

@@ -1,0 +1,25 @@
+
+
+<div class="row">
+    <div class="col-md-12 mb-3">
+        <h6>Código de verificación</h6>
+        <label for="{{ form.captcha_input.id_for_label }}" class="form-label">
+        </label>
+        <div id="captcha-img-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="80">
+                <text x="20" y="50" font-size="40" fill="black" font-family="Arial">Captcha</text>
+            </svg>
+        </div>
+        <br>
+        <h6>Introduzca código de verificación</h6>
+        {{ form.captcha_input }}
+        {% if form.captcha_input.errors %}
+            <div class="invalid-feedback d-block">
+                {{ form.captcha_input.errors.0 }}
+            </div>
+        {% endif %}
+        
+        <!-- Botón para refrescar el captcha -->
+        <button type="button" class="btn btn-secondary mt-2" id="refresh-captcha">Refrescar Captcha</button>
+    </div>
+</div>
