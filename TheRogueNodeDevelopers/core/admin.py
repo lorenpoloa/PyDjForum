@@ -1,8 +1,11 @@
 from django.contrib import admin
-from django.contrib.admin import AdminSite
+from .models import Information
+from .forms import InformationForm
 
-# Register your models here.
+class InformationAdmin(admin.ModelAdmin):
+    form = InformationForm
+    list_display = ('title', 'is_public')
+    search_fields = ('title', 'content')
+    list_filter = ('is_public',)
 
-AdminSite.site_header = 'Administración de TheRogueNodeDevelopers'
-AdminSite.site_title = 'TheRogueNodeDevelopers Admin'
-AdminSite.index_title = 'Panel de administración'
+admin.site.register(Information, InformationAdmin)

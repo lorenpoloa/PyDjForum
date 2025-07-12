@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from forum.models import Topic
+from .models import Information
 
 # Create your views here.
 def home(request):
@@ -8,3 +9,11 @@ def home(request):
         'recent_topics': recent_topics
     })
     
+
+def info(request):
+    information = Information.objects.all
+    return render(request, 'core/information.html', {
+        'information': information
+    })
+
+

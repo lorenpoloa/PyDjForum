@@ -39,8 +39,9 @@ card {
 /* Switch de tema */
 .theme-switcher {
     position: absolute;
-    right: 2%;
-    top:30%;
+    top:20%;
+    left: 90%;
+    border-radius: 25%;
 
 }
 
@@ -72,6 +73,7 @@ card {
 
 #theme-icon {
     position: relative;
+    top: 2.5px;
     transform: translateY(-50%);
     font-size: 1.2rem;
     transition: color 0.3s ease;
@@ -321,6 +323,7 @@ textarea.form-control {
 
 .btn {
     padding: 0.5rem 1rem;
+    margin: 0.5rem;
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
@@ -405,7 +408,11 @@ body {
 }
 
 .footer-container:hover {
-  height: 75%; /* Altura completa al pasar el mouse */
+  height: 60%; /* Altura completa al pasar el mouse */
+}
+
+.footer-more-button {
+    margin-bottom: 5%;
 }
 
 .footer-content {

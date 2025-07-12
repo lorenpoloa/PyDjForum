@@ -164,7 +164,9 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR /'staticfiles' # Para collectstatic
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
-    BASE_DIR / 'TheRogueNodeDevelopers' / 'static'
+    BASE_DIR / 'TheRogueNodeDevelopers' / 'static',
+    BASE_DIR / 'core' / 'static'
+
 ]
 
 MEDIA_URL = '/media/'
