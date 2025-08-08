@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load docs_markdown_tags %}
+
+<style>
+body {
+    padding: 0% !important;
+    margin: 0% !important;
+    min-width: none !important;
+}
+</style>
+
+{% block content %}
+<div class="container py-5">
+    <h1 style="padding: 2%;">Documentación TheRogueNode</h1>
+</div>
+
+
+<div class="doc_container">
+    <aside class="index_sidebar">
+        <div>
+            <h2>Índice</h2>
+
+            <p>Explora la documentación de TheRogueNode.</p>
+        </div>
+            {% include 'docs/_documentation_index.html' %}
+        <div>
+        
+    </aside>
+    
+    <section class="doc_content" >
+        {% for doctopic in doctopics %}
+            <h1>{{ doctopic.name }}</h1>
+            <ul>
+                {% for doc in doctopic.documents.all %}
+                    <li id="doc-{{ doc.id }}">
+                        <h2>{{ doc.title }}</h2>
+                        <p>{{ doc.content|markdown| safe}}</p>
+                    </li>
+                {% empty %}
+                    <li>No hay documentos relacionados.</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
+
+

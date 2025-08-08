@@ -9,16 +9,18 @@
     --card-bg: #333;
     --border-color: #495057;
     --bs-btn-bg: #ff0066;
-    
+    --title-color: #ff0066;
 }
 [data-theme="light"] {
     /* Colores oscuros */
     --primary-bg: #fff;
     --secondary-bg: #1e1e1e;
+    --text-color: #212529;
     --accent-color: #ff0066;
     --card-bg: #eee;
     --border-color: #495057;
     --bs-btn-bg: #ff0066;
+    --title-color: #003380;
 }
 body {
     background-color: var(--primary-bg);
@@ -31,6 +33,7 @@ card {
     background-color: var(--card-bg);
     border-color: var(--border-color);
 }
+
 
 .navbar {
     background-color: var(--secondary-bg) !important;
@@ -440,4 +443,99 @@ body {
     overflow: hidden !important;
     border-radius: 50% !important;
 
+}
+
+.list-group-item h5 {
+    color: var(--title-color);
+}
+
+
+.doc_container {
+  width: 100% !important;
+  background-color: var(--primary-bg);
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+/* Sidebar izquierdo */
+.index_sidebar {
+  border-right: #333 solid 1px;
+  width: 250px;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding-left: 1%;
+  margin-right: 5%;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Para navegadores compatibles */
+}
+
+.index_sidebar h4 {
+
+  color: var(--title-color);
+  font-size: 1.2em;
+  margin-bottom: 1rem;
+}
+
+.index_sidebar ul {
+  list-style: none;
+}
+
+.index_sidebar ul li {
+  margin: 5px;
+}
+
+.index_sidebar ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.index_sidebar ul li a:hover {
+  color: #fff;
+}
+
+/* Sección de contenido */
+.doc_content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: var(--primary-bg);
+  overflow-y: auto;
+  scrollbar-width: thin; /* Para navegadores compatibles */
+}
+
+.doc_content h1,
+.doc_content h2 {
+  margin-bottom: 1rem;
+  color: var(--title-color);
+}
+
+.doc_content p {
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+.doc-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan uniformemente */
+    height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
+    
+}
+
+.doc-card > div {
+    flex: 1; /* Asegura que los elementos internos ocupen el mismo espacio relativo */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido dentro de cada div */
+    justify-content: center; /* Centra horizontalmente el contenido dentro de cada div */
+    text-align: center; /* Opcional: centra el texto */
+}
+
+.doc-card .btn {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
 }

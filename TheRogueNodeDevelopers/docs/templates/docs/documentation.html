@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>TheRogueNode Docs</h1>
+    <p>Bienvenido a la documentación oficial. Aquí encontrarás guías técnicas y funcionales tanto para desarrolladores como para usuarios y administradores.</p>
+</div>
+
+  <div class="row g-4 py-5  align-items-stretch">
+    <div class="col-md-4">
+      <div class="doc-card h-100 border-0 shadow-sm">
+        <div>
+          <h2>Desarrolladores</h2>
+        </div>
+        <div>
+          <p>Documentación técnica del backend, frontend, APIs, dependencias y estructuras de carpetas.</p>
+        </div>
+        <div>
+          <a href="{% url 'docs:documentation_development' %}" class="btn">Ver documentación</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="doc-card h-100 border-0 shadow-sm">
+        <div>
+          <h2>Usuarios y Administradores</h2>
+        </div>
+        <div>
+          <p>Guías de uso, administración y manuales de las secciones ya desplegadas y en funcionamiento.</p>
+        </div>
+        <div>
+          <a href="{% url 'docs:documentation_production' %}" class="btn">Ver documentación</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="doc-card h-100 border-0 shadow-sm">
+        <div>
+            <h2>Plataforma de Desarrolladores</h2>
+        </div>
+        <div>
+          <p>Documentación sobre el entorno de desarrollo, despliegue, CI/CD y herramientas de colaboración.</p>
+        </div>
+        <div>
+          <a href="platform-docs/index.html" class="btn">Ver documentación</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

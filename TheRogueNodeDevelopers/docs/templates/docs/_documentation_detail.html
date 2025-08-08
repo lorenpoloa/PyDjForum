@@ -1,0 +1,23 @@
+{% load docs_markdown_tags %}
+
+
+{% regroup documents by doc_topic as topic_list %}
+{% for group in topic_list %}            
+    <h2>{{ group.grouper.name }}</h2>
+        <ul>
+            {% for doc in group.list %}
+                <li id="doc-{{ doc.id }}">
+                        <h2>{{ doc.title }}</h2>
+                        <div style="display: grid; grid-template-rows: repeat(1,2fr);color:grey !important;">
+                            <div> <p></p><strong>Autor:</strong> {{ doc.author }}</p> </div>
+                            <div> <p><strong>Versión:</strong> {{ doc.version }}</p> </div>
+                        </div>
+
+                        <p>{{ doc.content|markdown| safe}}</p>
+                    </li>
+                    {% empty %}
+                    <li>No hay documentos relacionados.</li>
+            {% endfor %}
+        </ul>
+{% endfor %}
+

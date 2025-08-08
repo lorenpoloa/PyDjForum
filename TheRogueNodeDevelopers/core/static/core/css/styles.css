@@ -4,6 +4,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+[data-theme="dark"] {
+    --primary-bg: #121212;
+    --card-bg: #333;
+    --border-color: #495057;
+    --bs-btn-bg: #ff0066;
+    --title-color: #00ffaa;
+    --hover-color: #aaa;
+}
+[data-theme="light"] {
+    --primary-bg: #fff;
+    --card-bg: #eee;
+    --border-color: #495057;
+    --bs-btn-bg: #ff0066;
+    --title-color: #00dd88;
+    --hover-color: #444;
+}
 
 body {
     font-family: "Segoe UI", sans-serif;
@@ -53,13 +69,13 @@ header h1 {
 .info-nav a {
     font-size: auto;
     text-decoration: none;
-    color: #00ffcc;
+    color: var(--title-color);
     font-weight: bold;
     transition: 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffffff;
+    color: var(--hover-color);
 }
 
 main {
@@ -71,9 +87,13 @@ section {
     margin-bottom: 40px;
 }
 
+
+
+
+
 h2 {
     margin-bottom: 10px;
-    color: #00ffaa;
+    color: var(--title-color);
 }
 h3 {
     margin-bottom: 10px;
@@ -91,4 +111,28 @@ footer {
     color: #777;
     border-top: 1px solid #333;
     padding-top: 20px;
+}
+
+/* Sección de contenido */
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan uniformemente */
+    height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
+    border-color: var(--primary-bg);
+}
+
+.info-card > div {
+    flex: 1; /* Asegura que los elementos internos ocupen el mismo espacio relativo */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido dentro de cada div */
+    justify-content: center; /* Centra horizontalmente el contenido dentro de cada div */
+    text-align: center; /* Opcional: centra el texto */
+}
+
+.info-card .btn {
+    background-color: var(--title-color) !important;
+    color: rgb(68, 68, 68) !important;
+    border-color: var(--primary-bg);
 }

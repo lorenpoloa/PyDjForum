@@ -5,7 +5,6 @@ class Information(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     is_public = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.title} (v{self.version})"
     
+    def __str__(self):
+        return f"{self.title} - {'Public' if self.is_public else 'Private'}"

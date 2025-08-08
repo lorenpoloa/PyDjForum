@@ -1,11 +1,16 @@
 from django.contrib import admin
 from .models import Information
-from .forms import InformationForm
+from django import forms
+from pagedown.widgets import AdminPagedownWidget
+
+class AdminInformationForm(forms.ModelForm):
+    content = forms.CharField(widget=AdminPagedownWidget())
+    
+    class Meta:
+        model = Information
+        fields = '__all__'
 
 class InformationAdmin(admin.ModelAdmin):
-    form = InformationForm
-    list_display = ('title', 'is_public')
-    search_fields = ('title', 'content')
-    list_filter = ('is_public',)
+    form = AdminInformationForm
 
 admin.site.register(Information, InformationAdmin)

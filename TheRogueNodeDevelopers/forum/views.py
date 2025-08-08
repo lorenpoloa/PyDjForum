@@ -5,7 +5,8 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from .models import Category, Topic, Post
 from .forms import TopicForm, PostForm, SearchForm
-from django.db.models import Q
+from django.db.models import Q, Count
+from django.core.paginator import Paginator
 
 class CategoryListView(ListView):
     model = Category

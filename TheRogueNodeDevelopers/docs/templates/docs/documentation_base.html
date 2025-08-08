@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+<style>
+body {
+    padding: 0% !important;
+    margin: 0% !important;
+    min-width: none !important;
+}
+</style>
+
+{% block content %}
+<div class="container py-5">
+    <h1 style="padding: 2%;">{{title}}</h1>
+    <p>{{description}}</p>
+</div>
+
+
+<div class="doc_container">
+    <aside class="index_sidebar">
+        <div>
+            <h2>Índice</h2>
+            <p>Explora los temas y documentos disponibles en esta sección de la documentación.</p>
+        </div>
+            {% include 'docs/_documentation_index.html' %}
+        <div>
+        
+    </aside>
+    
+    <section class="doc_content" >
+        
+        {% include 'docs/_documentation_detail.html' %}
+
+    </section>
+</div>
+{% endblock %}
+
+

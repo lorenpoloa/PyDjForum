@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'forum',
     'core',
     'docs',
-    # 'captcha',
 ]
 # Configuración específica de crispy-forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -65,26 +64,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
-
-# # Configuración opcional para django-simple-captcha
-# CAPTCHA_LENGTH = 6  # Longitud del código
-# CAPTCHA_FONT_SIZE = 40  # Tamaño de fuente
-# CAPTCHA_IMAGE_SIZE = (200, 50)  # Dimensiones de la imagen
-# CAPTCHA_TIMEOUT = 300  # 5 minutos de validez
-# CAPTCHA_NOISE_FUNCTIONS = [    
-#     'captcha.helpers.noise_arcs',
-#     'captcha.helpers.noise_dots',
-#     ]
-# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'  # o 'captcha.helpers.math_challenge'
-
-# Para producción:
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.tuservidor.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'tu@email.com'
-# EMAIL_HOST_PASSWORD = 'tupassword'
-# Configuración de autenticación
+# Middleware
+# https://docs.djangoproject.com/en/5.2/ref/settings/#middleware
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

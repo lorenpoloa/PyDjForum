@@ -11,9 +11,10 @@ def home(request):
     
 
 def info(request):
-    information = Information.objects.all
-    return render(request, 'core/information.html', {
-        'information': information
-    })
+    informations = Information.objects.all()
+    return render(request, 'core/information_base.html', {'informations': informations})
 
 
+def info_init(request):
+
+    return render(request, 'core/information_init.html')

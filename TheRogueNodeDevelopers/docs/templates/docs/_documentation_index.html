@@ -1,0 +1,14 @@
+{% regroup documents by doc_topic as topic_list %}
+
+{% for group in topic_list %}
+    <h4>{{ group.grouper.name }}</h4>
+    <ul>
+        {% for doc in group.list %}
+            <li>
+                <a href="#doc-{{ doc.id }}">{{ doc.title }}</a>
+            </li>
+        {% empty %}
+            <li>No hay documentación en este topic.</li>
+        {% endfor %}
+    </ul>
+{% endfor %}

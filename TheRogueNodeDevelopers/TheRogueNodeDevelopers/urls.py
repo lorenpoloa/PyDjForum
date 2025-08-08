@@ -25,12 +25,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_views.home, name='home'),
-    path('info/', core_views.info, name='info'),
+    path('core/', include('core.urls')),
     path('accounts/', include('accounts.urls')),
     path('forum/', include('forum.urls')),
     path('docs/', include('docs.urls')),
-    #path('captcha/', include('captcha.urls')),
 
-    # path('login/', auth_views.LoginView.as_view(), name='login'),
-    # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
