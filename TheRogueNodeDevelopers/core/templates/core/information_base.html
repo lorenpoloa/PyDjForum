@@ -2,30 +2,20 @@
 {% load markdown_tags %}
 {% load static %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+ <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
 {% endblock %}
-
-{% block title %}  
-    <h1>The Rogue Node</h1>
-    <p class="subtitle">Plataforma de desarrollo cooperativo</p>
-{% endblock %}
+ 
+{% block title %}TheRogueNode Info{% endblock %}
 
 {% block content %}
-<nav class="info-nav">
-    <ul>
-        {% for info in informations %}
-            <li class="info-sect"><a href="#info-{{ info.id }}">{{ info.title }}</a></li>
-        {% endfor %}
-    </ul>
-</nav>
+
 
 <main>
-    {% for info in informations %}
+    <h1>{{ infodoc.title}}</h1>
         <section id="info-{{ info.id }}">
             <div class="info-content">
-                {{ info.content|safe|markdown }}
+                {{ infodoc.content|safe|markdown }}
             </div>
         </section>
-    {% endfor %}
 </main>
 {% endblock %}

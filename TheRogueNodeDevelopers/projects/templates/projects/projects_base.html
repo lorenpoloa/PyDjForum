@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4>Proyectos en Desarrollo</h4>
+                    {% include 'projects/_project_stats.html' %}
+                </div>
+                {% include 'projects/_project_list.html' %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 position-sticky top-0">
+                <div class="card-header">
+                    <strong>Detalles del Proyecto</strong><br> 
+                </div>
+                {% if project %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.name }}</h5><br>
+                    <p class="caard-text">{{ project.description }}</p><br>
+                    <p>
+                        
+                    </p><br>
+                    <a href="{{project.repository.url}}"
+                       class="btn btn-primary w-100 mb-2">
+                        <i class="bi bi-github"></i>  {{ project.repository }}
+                    </a>
+                </div>
+
+                <div class="card-footer">
+                    <small>Mantenedor:</small> <span class="badge bg-secondary rounded-pill" >{{ project.maintainer }}</span><br>
+                    <small>Creado:</small> <span class="badge bg-secondary rounded-pill" style="background-color: darkseagreen !important;">{{ project.created_at|date:"d M Y" }}</span><br>
+                    <small>Actualizado:</small> <span class="badge bg-secondary rounded-pill" style="background-color:turquoise !important;">{{ project.updated_at|date:"d M Y" }}</span><br>
+                </div>
+                    <!-- Agrega más atributos según tu modelo -->
+
+                {% else %}
+                    <em>Selecciona un proyecto para ver los detalles.</em>
+                {% endif %}
+            </div>
+                
+            <div class="card mb-4">
+                <div class="card-header">
+                    Buscador
+                </div>
+                <div style="margin: 4%;">  
+
+                </div>
+                
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    Acciones
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'projects:project_create' %}?project={{ project.id }}" 
+                       class="btn btn-primary w-100 mb-2">
+                        <i class="bi bi-plus-circle"></i> Nuevo proyecto
+                    </a>
+                    <a href="{% url 'projects:project_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left"></i> Todos los proyectos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

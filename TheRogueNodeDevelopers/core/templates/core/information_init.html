@@ -5,52 +5,34 @@
 {% endblock %}
 {% block content %}
 <div class="container-info py-5">
-    <h1>TheRogueNode Developers Project Info</h1>
+    <h1 class="info-init-title">TheRogueNode Info</h1>
     <p>Bienvenido TheRogueNode Developers. Aquí te explicamos en que consiste este proyecto, cual es el objetivo y como puedes colaborar.</p>
 </div>
 
-  <div class="row g-4 py-5  align-items-stretch">
+  <div class="row g-4 py-5  align-items-stretch" >
+
+    {% for infodoc in infodocs %}
     <div class="col-md-4">
       <div class="info-card h-100 border-0 shadow-sm">
         <div>
-          <h2>Que es TheRogueNode</h2>
+          <h2>{{infodoc.title}}</h2>
         </div>
         <div>
-          <p>Porque, para que y como</p>
+          <!-- {% if infodoc.info_section == 'General_TheRogueNode' %}
+            <p class="infotag">TheRogueNode Plataform Info</p>
+          {% elif infodoc.info_section == General_TheRogueNode_Developers %}
+            <p class="infotag">TheRogueNode Developers Info</p>
+          {% else %}
+            <p class="infotag">TheRogueNode Community Info</p>
+          {% endif %} -->
         </div>
         <div>
-          <a href="{% url 'core:info_base' %}" class="btn">Leer mas</a>
+          <a href="{% url 'core:info' infodoc.pk %}" class="btn">Leer mas</a>
         </div>
       </div>
     </div>
+    {% endfor %}
 
-    <div class="col-md-4">
-        <div class="info-card h-100 border-0 shadow-sm">
-        <div>
-          <h2>Que es TheRogueNode Developers </h2>
-        </div>
-        <div>
-          <p>Guías de uso, administración y manuales de las secciones ya desplegadas y en funcionamiento.</p>
-        </div>
-        <div>
-          <a href="{% url 'core:info_base' %}" class="btn">Leer mas</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="info-card h-100 border-0 shadow-sm">
-        <div>
-            <h2>Información para futuros Colaboradores</h2>
-        </div>
-        <div>
-          <p>Como puedes colaborar y como debes colaborar si decides hacerlo.</p>
-        </div>
-        <div>
-          <a href="{% url 'core:info_base' %}" class="btn">Leer mas</a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 {% endblock %}

@@ -11,6 +11,7 @@
     --bs-btn-bg: #ff0066;
     --title-color: #00ffaa;
     --hover-color: #aaa;
+    --text-color: #f8f9fa;
 }
 [data-theme="light"] {
     --primary-bg: #fff;
@@ -19,7 +20,7 @@
     --bs-btn-bg: #ff0066;
     --title-color: #00dd88;
     --hover-color: #444;
-}
+    --text-color: #1f1f1f;}
 
 body {
     font-family: "Segoe UI", sans-serif;
@@ -38,15 +39,6 @@ body {
     background-color: white !important;
     color: #1a1a1a;
 
-}
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    color: #00ff88;
 }
 
 .subtitle {
@@ -122,6 +114,9 @@ footer {
     height: 100%; /* Hace que todas las tarjetas tengan la misma altura */
     border-color: var(--primary-bg);
 }
+.row {
+    row-gap: 100px !important;
+}
 
 .info-card > div {
     flex: 1; /* Asegura que los elementos internos ocupen el mismo espacio relativo */
@@ -135,4 +130,24 @@ footer {
     background-color: var(--title-color) !important;
     color: rgb(68, 68, 68) !important;
     border-color: var(--primary-bg);
+}
+.info-card div h2{
+    color: var(--text-color);
+
+}
+.infotag {
+    background-color: rgb(70, 70, 70);
+    color: rgb(208, 208, 208);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 50%;
+}
+
+h1 {
+    color: var(--title-color) !important;
+}
+
+h1.info-init-title {
+    color: var(--text-color) !important;
 }

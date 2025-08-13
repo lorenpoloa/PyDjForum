@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'forum',
     'core',
     'docs',
+    'projects',
 ]
 # Configuración específica de crispy-forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

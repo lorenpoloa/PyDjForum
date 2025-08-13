@@ -29,5 +29,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('forum/', include('forum.urls')),
     path('docs/', include('docs.urls')),
-
+    path('projects/', include('projects.urls')),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

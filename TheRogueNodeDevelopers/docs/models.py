@@ -10,8 +10,10 @@ class DocTopic(models.Model):
         return self.name
     
 class DocSection(models.TextChoices):
+    PROJECT = 'PR', 'Project'
+    PLATFORM = 'PL', 'Platform'
     NETWORK = 'NE', 'Network'
-    PROTOCOLS = 'PR', 'Protocols'
+    PROTOCOLS = 'PT', 'Protocols'
     APPLICATION = 'AP', 'Application'
     SERVICES = 'SE', 'Services'
     SECURITY = 'SEC', 'Security'
