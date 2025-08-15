@@ -7,9 +7,11 @@
     --text-color: #f8f9fa;
     --accent-color: #ff0066;
     --card-bg: #333;
-    --border-color: #495057;
+    --border-color: #232323;
     --bs-btn-bg: #ff0066;
     --title-color: #ff0066;
+    --card-header-bg: #1e1e1e;
+    --card-header-text: #f8f9fa;
 }
 [data-theme="light"] {
     /* Colores oscuros */
@@ -18,9 +20,11 @@
     --text-color: #212529;
     --accent-color: #ff0066;
     --card-bg: #eee;
-    --border-color: #495057;
+    --border-color: #ddd;
     --bs-btn-bg: #ff0066;
     --title-color: #003380;
+    --card-header-bg: #efefef;
+    --card-header-text: #222;
 }
 body {
     background-color: var(--primary-bg);
@@ -31,6 +35,14 @@ body {
 
 .card {
     z-index: 1;
+    border-color: 1px solid var(--border-color);
+}
+
+.card-header {
+    background-color: var(--card-header-bg);
+    color: var(--card-header-text);
+    border-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 
 }
 
@@ -173,7 +185,7 @@ textarea.form-control {
 
 /* Estilos para categorías */
 .list-group-item-action:hover {
-    background-color: var(--secondary-bg);
+    color: var(--title-color) !important;
 }
 
 .badge.bg-secondary {
@@ -190,24 +202,19 @@ textarea.form-control {
     color: var(--accent-color);
 }
 
-/* Adaptación para tema oscuro */
-[data-theme="dark"] .card-header.bg-primary {
-    background-color: #ff0066 !important;
-}
 
+/* Adaptación para tema oscuro */
 [data-theme="dark"] .list-group-item {
-    background-color: var(--card-bg);
+    background-color: var(--primary-bg);
     border-color: var(--border-color);
 }
 
 /* Adaptación para tema claro */
-[data-theme="ligh"] .card-header.bg-primary {
-    background-color: #003380 !important;
-}
 [data-theme="light"] .list-group-item {
-    background-color: var(--card-bg);
+    background-color: var(--primary-bg);
     border-color: var(--border-color);
 }
+
 
 .vLargeTextField {
     border-radius: 2%;
@@ -403,6 +410,7 @@ body {
   color: white;
   z-index: 1000;
   overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .footer-container:hover {

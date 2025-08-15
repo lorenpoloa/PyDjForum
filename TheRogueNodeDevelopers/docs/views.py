@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import DocTopic, Documentation, ProcessState
 from django.views.generic import ListView
 from django.db.models import Count, Prefetch
 from django.http import Http404
-
+from django.templatetags.static import static
 
 def documentation_init(request):
 
@@ -41,6 +41,9 @@ def documentation_production(request):
     
     return render(request, 'docs/documentation_base.html', context)
 
+
+def documentation_reference(request):
+    return render(request, 'docs/documentation_reference.html')
 
 def documentation_detail(request, pk):
     docs = get_object_or_404(Documentation, pk=pk)

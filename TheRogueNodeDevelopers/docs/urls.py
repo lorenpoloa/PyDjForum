@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.documentation_init, name='documentation_init'),
     path('developers/index/', views.documentation_development, name='documentation_development'),
     path('production/index/', views.documentation_production, name='documentation_production'),
+    path('reference/', views.documentation_reference, name='documentation_reference'),
 
 ]

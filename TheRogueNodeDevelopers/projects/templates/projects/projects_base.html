@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container mt-4">
+    <div class="container py-5">   
+        <h1>Proyectos</h1>
+        <p>Listado de proyectos en desarrollo de la plataforma TheRogueNode</p>
+    </div>
     <div class="row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header">
                     <h4>Proyectos en Desarrollo</h4>
                     {% include 'projects/_project_stats.html' %}
                 </div>
@@ -12,13 +16,16 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card mb-4 position-sticky top-0">
+            <div class="card mb-4 position-fixed relative-top" style="margin-right: 5%;">
                 <div class="card-header">
-                    <strong>Detalles del Proyecto</strong><br> 
+                        <strong>Detalles del Proyecto</strong>
                 </div>
                 {% if project %}
                 <div class="card-body">
-                    <h5 class="card-title">{{ project.name }}</h5><br>
+                    <h5 class="card-title">{{ project.name }}
+                        <span class="badge bg-secondary rounded-pill" >{{ project.get_documentationSection_display }}</span>
+                    </h5><br>
+        
                     <p class="caard-text">{{ project.description }}</p><br>
                     <p>
                         
@@ -30,40 +37,15 @@
                 </div>
 
                 <div class="card-footer">
-                    <small>Mantenedor:</small> <span class="badge bg-secondary rounded-pill" >{{ project.maintainer }}</span><br>
-                    <small>Creado:</small> <span class="badge bg-secondary rounded-pill" style="background-color: darkseagreen !important;">{{ project.created_at|date:"d M Y" }}</span><br>
-                    <small>Actualizado:</small> <span class="badge bg-secondary rounded-pill" style="background-color:turquoise !important;">{{ project.updated_at|date:"d M Y" }}</span><br>
+                    <small>Mantenedor:</small> {{ project.maintainer }}<br>
+                    <small>Creado:</small> {{ project.created_at|date:"d M Y" }}<br>
+                    <small>Actualizado:</small> {{ project.updated_at|date:"d M Y" }}<br>
                 </div>
                     <!-- Agrega más atributos según tu modelo -->
 
                 {% else %}
                     <em>Selecciona un proyecto para ver los detalles.</em>
                 {% endif %}
-            </div>
-                
-            <div class="card mb-4">
-                <div class="card-header">
-                    Buscador
-                </div>
-                <div style="margin: 4%;">  
-
-                </div>
-                
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">
-                    Acciones
-                </div>
-                <div class="card-body">
-                    <a href="{% url 'projects:project_create' %}?project={{ project.id }}" 
-                       class="btn btn-primary w-100 mb-2">
-                        <i class="bi bi-plus-circle"></i> Nuevo proyecto
-                    </a>
-                    <a href="{% url 'projects:project_list' %}" class="btn btn-outline-secondary w-100">
-                        <i class="bi bi-arrow-left"></i> Todos los proyectos
-                    </a>
-                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Forum app documentation &#8212; documentación de TRN Developers Platform - </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=def86cc0" />
+    
+    <script src="_static/documentation_options.js?v=e2bb6099"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=d190bf04"></script>
+    
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="TRN Developers Platform documentation" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="TRN Developers Platform documentation"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentación de TRN Developers Platform - </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Forum app documentation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-forum">
+<span id="forum-app-documentation"></span><h1>Forum app documentation<a class="headerlink" href="#module-forum" title="Link to this heading">¶</a></h1>
+<section id="module-forum.forms">
+<span id="forum-forms"></span><h2>forum.forms<a class="headerlink" href="#module-forum.forms" title="Link to this heading">¶</a></h2>
+<p>Formularios para la aplicación de foro.</p>
+<p>Incluye formularios para crear temas, publicaciones y realizar búsquedas.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.forms.PostForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.forms.</span></span><span class="sig-name descname"><span class="pre">PostForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.forms.PostForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Formulario para crear una nueva publicación.</p>
+<dl class="simple">
+<dt>Campos:</dt><dd><p>content: Contenido de la publicación (con soporte Markdown).</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.forms.PostForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#forum.forms.PostForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.PostForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['content']</span></em><a class="headerlink" href="#forum.forms.PostForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.PostForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.forms.PostForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Post" title="forum.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.PostForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;pagedown.widgets.PagedownWidget</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.PostForm.Meta.widgets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.PostForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.PostForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.PostForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#forum.forms.PostForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="forum.forms.PostForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#forum.forms.PostForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.forms.SearchForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.forms.</span></span><span class="sig-name descname"><span class="pre">SearchForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_order=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.forms.SearchForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Form</span></code></p>
+<p>Formulario para buscar temas en el foro.</p>
+<dl class="simple">
+<dt>Campos:</dt><dd><p>query: Texto de búsqueda.
+category: Categoría para filtrar.
+tags: Etiquetas para filtrar.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.SearchForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'query':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'tags':</span> <span class="pre">&lt;django.forms.models.ModelMultipleChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.SearchForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.SearchForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'query':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'tags':</span> <span class="pre">&lt;django.forms.models.ModelMultipleChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.SearchForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="forum.forms.SearchForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#forum.forms.SearchForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.forms.TopicForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.forms.</span></span><span class="sig-name descname"><span class="pre">TopicForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.forms.TopicForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Formulario para crear o editar un tema.</p>
+<dl class="simple">
+<dt>Campos:</dt><dd><p>title: Título del tema.
+content: Contenido del tema.
+category: Categoría seleccionada.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#forum.forms.TopicForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title',</span> <span class="pre">'content',</span> <span class="pre">'category']</span></em><a class="headerlink" href="#forum.forms.TopicForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.forms.TopicForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Topic" title="forum.models.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.Meta.widgets">
+<span class="sig-name descname"><span class="pre">widgets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">&lt;django.forms.widgets.Select</span> <span class="pre">object&gt;,</span> <span class="pre">'content':</span> <span class="pre">&lt;django.forms.widgets.Textarea</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.widgets.TextInput</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.TopicForm.Meta.widgets" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'title':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#forum.forms.TopicForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#forum.forms.TopicForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="forum.forms.TopicForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#forum.forms.TopicForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-forum.models">
+<span id="forum-models"></span><h2>forum.models<a class="headerlink" href="#module-forum.models" title="Link to this heading">¶</a></h2>
+<p>Modelos principales para la aplicación de foro.</p>
+<p>Incluye las clases Tag, Category, Topic y Post para estructurar el sistema de foros.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.models.Category">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.models.</span></span><span class="sig-name descname"><span class="pre">Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Representa una categoría del foro.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): Nombre de la categoría.
+slug (str): Slug único para la URL.
+description (str): Descripción de la categoría.
+created_at (datetime): Fecha de creación.
+updated_at (datetime): Fecha de última actualización.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Category.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#forum.models.Category.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Category.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#forum.models.Category.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#forum.models.Category.created_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#forum.models.Category.description" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.get_absolute_url">
+<span class="sig-name descname"><span class="pre">get_absolute_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.get_absolute_url" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve la URL absoluta para el detalle de la categoría.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.get_next_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.get_next_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.get_previous_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.get_previous_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#forum.models.Category.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#forum.models.Category.name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#forum.models.Category.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Category.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Category.save" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda la categoría. Si no tiene slug, lo genera automáticamente a partir del nombre.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.slug">
+<span class="sig-name descname"><span class="pre">slug</span></span><a class="headerlink" href="#forum.models.Category.slug" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.topics">
+<span class="sig-name descname"><span class="pre">topics</span></span><a class="headerlink" href="#forum.models.Category.topics" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Category.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#forum.models.Category.updated_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.models.Post">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.models.</span></span><span class="sig-name descname"><span class="pre">Post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Publicación o respuesta dentro de un tema.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>content (str): Contenido de la publicación.
+author (CustomUser): Autor de la publicación.
+topic (Topic): Tema al que pertenece la publicación.
+created_at (datetime): Fecha de creación.
+updated_at (datetime): Fecha de última actualización.
+is_modified (bool): Indica si la publicación fue editada.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Post.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#forum.models.Post.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Post.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#forum.models.Post.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#forum.models.Post.author" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.author_id">
+<span class="sig-name descname"><span class="pre">author_id</span></span><a class="headerlink" href="#forum.models.Post.author_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.content">
+<span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#forum.models.Post.content" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#forum.models.Post.created_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Post.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post.get_next_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Post.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post.get_next_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Post.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post.get_previous_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Post.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post.get_previous_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#forum.models.Post.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.is_modified">
+<span class="sig-name descname"><span class="pre">is_modified</span></span><a class="headerlink" href="#forum.models.Post.is_modified" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#forum.models.Post.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Post.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Post.save" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda la publicación. Si ya existe, marca como modificada.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.topic">
+<span class="sig-name descname"><span class="pre">topic</span></span><a class="headerlink" href="#forum.models.Post.topic" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.topic_id">
+<span class="sig-name descname"><span class="pre">topic_id</span></span><a class="headerlink" href="#forum.models.Post.topic_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Post.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#forum.models.Post.updated_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.models.Tag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.models.</span></span><span class="sig-name descname"><span class="pre">Tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Tag" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Etiqueta para clasificar temas del foro.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): Nombre de la etiqueta.
+slug (str): Slug único para la URL.
+color (str): Código HEX del color de la etiqueta.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Tag.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#forum.models.Tag.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Tag.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#forum.models.Tag.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#forum.models.Tag.color" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#forum.models.Tag.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#forum.models.Tag.name" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#forum.models.Tag.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.slug">
+<span class="sig-name descname"><span class="pre">slug</span></span><a class="headerlink" href="#forum.models.Tag.slug" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Tag.topic_set">
+<span class="sig-name descname"><span class="pre">topic_set</span></span><a class="headerlink" href="#forum.models.Tag.topic_set" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.models.Topic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.models.</span></span><span class="sig-name descname"><span class="pre">Topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Tema de discusión dentro de una categoría.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>tags (ManyToMany[Tag]): Etiquetas asociadas al tema.
+title (str): Título del tema.
+slug (str): Slug único para la URL.
+content (str): Contenido del tema.
+author (CustomUser): Autor del tema.
+category (Category): Categoría a la que pertenece el tema.
+views (int): Número de visualizaciones.
+is_pinned (bool): Si el tema está fijado.
+is_closed (bool): Si el tema está cerrado.
+created_at (datetime): Fecha de creación.
+updated_at (datetime): Fecha de última actualización.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Topic.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#forum.models.Topic.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="forum.models.Topic.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#forum.models.Topic.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.author">
+<span class="sig-name descname"><span class="pre">author</span></span><a class="headerlink" href="#forum.models.Topic.author" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.author_id">
+<span class="sig-name descname"><span class="pre">author_id</span></span><a class="headerlink" href="#forum.models.Topic.author_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#forum.models.Topic.category" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><a class="headerlink" href="#forum.models.Topic.category_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.content">
+<span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#forum.models.Topic.content" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#forum.models.Topic.created_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.get_absolute_url">
+<span class="sig-name descname"><span class="pre">get_absolute_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.get_absolute_url" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve la URL absoluta para el detalle del tema.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.get_next_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.get_next_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_next_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.get_next_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.get_previous_by_created_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.get_previous_by_updated_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_updated_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.get_previous_by_updated_at" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#forum.models.Topic.id" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.increment_views">
+<span class="sig-name descname"><span class="pre">increment_views</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.increment_views" title="Link to this definition">¶</a></dt>
+<dd><p>Incrementa el contador de visualizaciones del tema.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.is_closed">
+<span class="sig-name descname"><span class="pre">is_closed</span></span><a class="headerlink" href="#forum.models.Topic.is_closed" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.is_pinned">
+<span class="sig-name descname"><span class="pre">is_pinned</span></span><a class="headerlink" href="#forum.models.Topic.is_pinned" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#forum.models.Topic.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.posts">
+<span class="sig-name descname"><span class="pre">posts</span></span><a class="headerlink" href="#forum.models.Topic.posts" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.models.Topic.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.models.Topic.save" title="Link to this definition">¶</a></dt>
+<dd><p>Guarda el tema. Si no tiene slug, lo genera automáticamente a partir del título y el pk.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.slug">
+<span class="sig-name descname"><span class="pre">slug</span></span><a class="headerlink" href="#forum.models.Topic.slug" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.tags">
+<span class="sig-name descname"><span class="pre">tags</span></span><a class="headerlink" href="#forum.models.Topic.tags" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#forum.models.Topic.title" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#forum.models.Topic.updated_at" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.models.Topic.views">
+<span class="sig-name descname"><span class="pre">views</span></span><a class="headerlink" href="#forum.models.Topic.views" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-forum.views">
+<span id="forum-views"></span><h2>forum.views<a class="headerlink" href="#module-forum.views" title="Link to this heading">¶</a></h2>
+<p>Vistas para la aplicación de foro.</p>
+<p>Incluye vistas basadas en clase y función para listar categorías, mostrar temas, crear temas y publicaciones, y buscar.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">CategoryDetailView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.CategoryDetailView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code></p>
+<p>Vista para mostrar el detalle de una categoría y sus temas (duplicada, revisar si es necesario).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'category'</span></em><a class="headerlink" href="#forum.views.CategoryDetailView.context_object_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.CategoryDetailView.get_context_data" title="Link to this definition">¶</a></dt>
+<dd><p>Agrega los temas de la categoría al contexto.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.CategoryDetailView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Category" title="forum.models.Category"><code class="xref py py-class docutils literal notranslate"><span class="pre">Category</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView.slug_url_kwarg">
+<span class="sig-name descname"><span class="pre">slug_url_kwarg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'slug'</span></em><a class="headerlink" href="#forum.views.CategoryDetailView.slug_url_kwarg" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryDetailView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forum/category_detail.html'</span></em><a class="headerlink" href="#forum.views.CategoryDetailView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.CategoryListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">CategoryListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.CategoryListView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>Vista para listar todas las categorías del foro (duplicada, revisar si es necesario).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryListView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'categories'</span></em><a class="headerlink" href="#forum.views.CategoryListView.context_object_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.CategoryListView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Category" title="forum.models.Category"><code class="xref py py-class docutils literal notranslate"><span class="pre">Category</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.CategoryListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forum/category_list.html'</span></em><a class="headerlink" href="#forum.views.CategoryListView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.PostCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">PostCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.PostCreateView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code></p>
+<p>Vista para crear una nueva publicación en un tema.</p>
+<dl class="simple">
+<dt>Atributos de clase:</dt><dd><p>model: Modelo Post.
+form_class: Formulario para la publicación.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.PostCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#forum.views.PostCreateView.form_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.forms.PostForm" title="forum.forms.PostForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.PostCreateView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.PostCreateView.form_valid" title="Link to this definition">¶</a></dt>
+<dd><p>Asigna el usuario autenticado y el tema a la publicación.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.PostCreateView.get_success_url">
+<span class="sig-name descname"><span class="pre">get_success_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.PostCreateView.get_success_url" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve la URL de éxito tras crear la publicación, anclando al post.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.PostCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.PostCreateView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Post" title="forum.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.TagTopicListView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">TagTopicListView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TagTopicListView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ListView</span></code></p>
+<p>Vista para listar los temas asociados a una etiqueta específica.</p>
+<dl class="simple">
+<dt>Atributos de clase:</dt><dd><p>model: Modelo Topic.
+template_name: Plantilla a renderizar.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.TagTopicListView.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TagTopicListView.get_queryset" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve los temas filtrados por el slug de la etiqueta.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TagTopicListView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.TagTopicListView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Topic" title="forum.models.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TagTopicListView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forum/tag_topics.html'</span></em><a class="headerlink" href="#forum.views.TagTopicListView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">TopicCreateView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TopicCreateView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">CreateView</span></code></p>
+<p>Vista para crear un nuevo tema en el foro.</p>
+<dl class="simple">
+<dt>Atributos de clase:</dt><dd><p>model: Modelo Topic.
+form_class: Formulario para el tema.
+template_name: Plantilla a renderizar.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView.form_class">
+<span class="sig-name descname"><span class="pre">form_class</span></span><a class="headerlink" href="#forum.views.TopicCreateView.form_class" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.forms.TopicForm" title="forum.forms.TopicForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView.form_valid">
+<span class="sig-name descname"><span class="pre">form_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TopicCreateView.form_valid" title="Link to this definition">¶</a></dt>
+<dd><p>Asigna el usuario autenticado como autor del tema.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView.get_success_url">
+<span class="sig-name descname"><span class="pre">get_success_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TopicCreateView.get_success_url" title="Link to this definition">¶</a></dt>
+<dd><p>Devuelve la URL de éxito tras crear el tema.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.TopicCreateView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Topic" title="forum.models.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicCreateView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forum/topic_create.html'</span></em><a class="headerlink" href="#forum.views.TopicCreateView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">TopicDetailView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TopicDetailView" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DetailView</span></code></p>
+<p>Vista para mostrar el detalle de un tema y sus publicaciones.</p>
+<dl class="simple">
+<dt>Atributos de clase:</dt><dd><p>model: Modelo Topic.
+template_name: Plantilla a renderizar.
+slug_url_kwarg: Nombre del parámetro de URL para el slug.
+context_object_name: Nombre del contexto para el tema.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'topic'</span></em><a class="headerlink" href="#forum.views.TopicDetailView.context_object_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView.get_context_data">
+<span class="sig-name descname"><span class="pre">get_context_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.TopicDetailView.get_context_data" title="Link to this definition">¶</a></dt>
+<dd><p>Agrega las publicaciones y el formulario de respuesta al contexto.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#forum.views.TopicDetailView.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#forum.models.Topic" title="forum.models.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView.slug_url_kwarg">
+<span class="sig-name descname"><span class="pre">slug_url_kwarg</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'slug'</span></em><a class="headerlink" href="#forum.views.TopicDetailView.slug_url_kwarg" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="forum.views.TopicDetailView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'forum/topic_detail.html'</span></em><a class="headerlink" href="#forum.views.TopicDetailView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="forum.views.search">
+<span class="sig-prename descclassname"><span class="pre">forum.views.</span></span><span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#forum.views.search" title="Link to this definition">¶</a></dt>
+<dd><p>Vista para buscar temas en el foro.</p>
+<p>Procesa el formulario de búsqueda y muestra los resultados en la plantilla base.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Renderiza la plantilla con los resultados de búsqueda.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Tabla de contenido</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Forum app documentation</a><ul>
+<li><a class="reference internal" href="#module-forum.forms">forum.forms</a><ul>
+<li><a class="reference internal" href="#forum.forms.PostForm"><code class="docutils literal notranslate"><span class="pre">PostForm</span></code></a><ul>
+<li><a class="reference internal" href="#forum.forms.PostForm.Meta"><code class="docutils literal notranslate"><span class="pre">PostForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#forum.forms.PostForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">PostForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.PostForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">PostForm.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.PostForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">PostForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.forms.PostForm.base_fields"><code class="docutils literal notranslate"><span class="pre">PostForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.PostForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">PostForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.PostForm.media"><code class="docutils literal notranslate"><span class="pre">PostForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.forms.SearchForm"><code class="docutils literal notranslate"><span class="pre">SearchForm</span></code></a><ul>
+<li><a class="reference internal" href="#forum.forms.SearchForm.base_fields"><code class="docutils literal notranslate"><span class="pre">SearchForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.SearchForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">SearchForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.SearchForm.media"><code class="docutils literal notranslate"><span class="pre">SearchForm.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.forms.TopicForm"><code class="docutils literal notranslate"><span class="pre">TopicForm</span></code></a><ul>
+<li><a class="reference internal" href="#forum.forms.TopicForm.Meta"><code class="docutils literal notranslate"><span class="pre">TopicForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#forum.forms.TopicForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">TopicForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.TopicForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">TopicForm.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.TopicForm.Meta.widgets"><code class="docutils literal notranslate"><span class="pre">TopicForm.Meta.widgets</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.forms.TopicForm.base_fields"><code class="docutils literal notranslate"><span class="pre">TopicForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.TopicForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">TopicForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#forum.forms.TopicForm.media"><code class="docutils literal notranslate"><span class="pre">TopicForm.media</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-forum.models">forum.models</a><ul>
+<li><a class="reference internal" href="#forum.models.Category"><code class="docutils literal notranslate"><span class="pre">Category</span></code></a><ul>
+<li><a class="reference internal" href="#forum.models.Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Category.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Category.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.created_at"><code class="docutils literal notranslate"><span class="pre">Category.created_at</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.description"><code class="docutils literal notranslate"><span class="pre">Category.description</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.get_absolute_url"><code class="docutils literal notranslate"><span class="pre">Category.get_absolute_url()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Category.get_next_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Category.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Category.get_previous_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.id"><code class="docutils literal notranslate"><span class="pre">Category.id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.name"><code class="docutils literal notranslate"><span class="pre">Category.name</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.objects"><code class="docutils literal notranslate"><span class="pre">Category.objects</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.save"><code class="docutils literal notranslate"><span class="pre">Category.save()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.slug"><code class="docutils literal notranslate"><span class="pre">Category.slug</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.topics"><code class="docutils literal notranslate"><span class="pre">Category.topics</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Category.updated_at"><code class="docutils literal notranslate"><span class="pre">Category.updated_at</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.models.Post"><code class="docutils literal notranslate"><span class="pre">Post</span></code></a><ul>
+<li><a class="reference internal" href="#forum.models.Post.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Post.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Post.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.author"><code class="docutils literal notranslate"><span class="pre">Post.author</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.author_id"><code class="docutils literal notranslate"><span class="pre">Post.author_id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.content"><code class="docutils literal notranslate"><span class="pre">Post.content</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.created_at"><code class="docutils literal notranslate"><span class="pre">Post.created_at</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Post.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Post.get_next_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Post.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Post.get_previous_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.id"><code class="docutils literal notranslate"><span class="pre">Post.id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.is_modified"><code class="docutils literal notranslate"><span class="pre">Post.is_modified</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.objects"><code class="docutils literal notranslate"><span class="pre">Post.objects</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.save"><code class="docutils literal notranslate"><span class="pre">Post.save()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.topic"><code class="docutils literal notranslate"><span class="pre">Post.topic</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.topic_id"><code class="docutils literal notranslate"><span class="pre">Post.topic_id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Post.updated_at"><code class="docutils literal notranslate"><span class="pre">Post.updated_at</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.models.Tag"><code class="docutils literal notranslate"><span class="pre">Tag</span></code></a><ul>
+<li><a class="reference internal" href="#forum.models.Tag.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Tag.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Tag.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.color"><code class="docutils literal notranslate"><span class="pre">Tag.color</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.id"><code class="docutils literal notranslate"><span class="pre">Tag.id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.name"><code class="docutils literal notranslate"><span class="pre">Tag.name</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.objects"><code class="docutils literal notranslate"><span class="pre">Tag.objects</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.slug"><code class="docutils literal notranslate"><span class="pre">Tag.slug</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Tag.topic_set"><code class="docutils literal notranslate"><span class="pre">Tag.topic_set</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.models.Topic"><code class="docutils literal notranslate"><span class="pre">Topic</span></code></a><ul>
+<li><a class="reference internal" href="#forum.models.Topic.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Topic.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Topic.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.author"><code class="docutils literal notranslate"><span class="pre">Topic.author</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.author_id"><code class="docutils literal notranslate"><span class="pre">Topic.author_id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.category"><code class="docutils literal notranslate"><span class="pre">Topic.category</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.category_id"><code class="docutils literal notranslate"><span class="pre">Topic.category_id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.content"><code class="docutils literal notranslate"><span class="pre">Topic.content</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.created_at"><code class="docutils literal notranslate"><span class="pre">Topic.created_at</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.get_absolute_url"><code class="docutils literal notranslate"><span class="pre">Topic.get_absolute_url()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Topic.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.get_next_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Topic.get_next_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Topic.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.get_previous_by_updated_at"><code class="docutils literal notranslate"><span class="pre">Topic.get_previous_by_updated_at()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.id"><code class="docutils literal notranslate"><span class="pre">Topic.id</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.increment_views"><code class="docutils literal notranslate"><span class="pre">Topic.increment_views()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.is_closed"><code class="docutils literal notranslate"><span class="pre">Topic.is_closed</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.is_pinned"><code class="docutils literal notranslate"><span class="pre">Topic.is_pinned</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.objects"><code class="docutils literal notranslate"><span class="pre">Topic.objects</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.posts"><code class="docutils literal notranslate"><span class="pre">Topic.posts</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.save"><code class="docutils literal notranslate"><span class="pre">Topic.save()</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.slug"><code class="docutils literal notranslate"><span class="pre">Topic.slug</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.tags"><code class="docutils literal notranslate"><span class="pre">Topic.tags</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.title"><code class="docutils literal notranslate"><span class="pre">Topic.title</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.updated_at"><code class="docutils literal notranslate"><span class="pre">Topic.updated_at</span></code></a></li>
+<li><a class="reference internal" href="#forum.models.Topic.views"><code class="docutils literal notranslate"><span class="pre">Topic.views</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-forum.views">forum.views</a><ul>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView.context_object_name"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView.context_object_name</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView.get_context_data"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView.get_context_data()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView.model"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView.slug_url_kwarg"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView.slug_url_kwarg</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryDetailView.template_name"><code class="docutils literal notranslate"><span class="pre">CategoryDetailView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.CategoryListView"><code class="docutils literal notranslate"><span class="pre">CategoryListView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.CategoryListView.context_object_name"><code class="docutils literal notranslate"><span class="pre">CategoryListView.context_object_name</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryListView.model"><code class="docutils literal notranslate"><span class="pre">CategoryListView.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.CategoryListView.template_name"><code class="docutils literal notranslate"><span class="pre">CategoryListView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.PostCreateView"><code class="docutils literal notranslate"><span class="pre">PostCreateView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.PostCreateView.form_class"><code class="docutils literal notranslate"><span class="pre">PostCreateView.form_class</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.PostCreateView.form_valid"><code class="docutils literal notranslate"><span class="pre">PostCreateView.form_valid()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.PostCreateView.get_success_url"><code class="docutils literal notranslate"><span class="pre">PostCreateView.get_success_url()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.PostCreateView.model"><code class="docutils literal notranslate"><span class="pre">PostCreateView.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.TagTopicListView"><code class="docutils literal notranslate"><span class="pre">TagTopicListView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.TagTopicListView.get_queryset"><code class="docutils literal notranslate"><span class="pre">TagTopicListView.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TagTopicListView.model"><code class="docutils literal notranslate"><span class="pre">TagTopicListView.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TagTopicListView.template_name"><code class="docutils literal notranslate"><span class="pre">TagTopicListView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.TopicCreateView"><code class="docutils literal notranslate"><span class="pre">TopicCreateView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.TopicCreateView.form_class"><code class="docutils literal notranslate"><span class="pre">TopicCreateView.form_class</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicCreateView.form_valid"><code class="docutils literal notranslate"><span class="pre">TopicCreateView.form_valid()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicCreateView.get_success_url"><code class="docutils literal notranslate"><span class="pre">TopicCreateView.get_success_url()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicCreateView.model"><code class="docutils literal notranslate"><span class="pre">TopicCreateView.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicCreateView.template_name"><code class="docutils literal notranslate"><span class="pre">TopicCreateView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.TopicDetailView"><code class="docutils literal notranslate"><span class="pre">TopicDetailView</span></code></a><ul>
+<li><a class="reference internal" href="#forum.views.TopicDetailView.context_object_name"><code class="docutils literal notranslate"><span class="pre">TopicDetailView.context_object_name</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicDetailView.get_context_data"><code class="docutils literal notranslate"><span class="pre">TopicDetailView.get_context_data()</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicDetailView.model"><code class="docutils literal notranslate"><span class="pre">TopicDetailView.model</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicDetailView.slug_url_kwarg"><code class="docutils literal notranslate"><span class="pre">TopicDetailView.slug_url_kwarg</span></code></a></li>
+<li><a class="reference internal" href="#forum.views.TopicDetailView.template_name"><code class="docutils literal notranslate"><span class="pre">TopicDetailView.template_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#forum.views.search"><code class="docutils literal notranslate"><span class="pre">search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Tema anterior</h4>
+    <p class="topless"><a href="index.html"
+                          title="capítulo anterior">TRN Developers Platform documentation</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/forum.rst.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Índice de Módulos Python"
+             >módulos</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="TRN Developers Platform documentation"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentación de TRN Developers Platform - </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Forum app documentation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Lorenzo Polo Arévalo.
+      Creado usando <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

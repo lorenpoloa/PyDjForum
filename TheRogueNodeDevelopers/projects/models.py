@@ -1,5 +1,5 @@
 from django.db import models
-
+from docs.models import DocSection
 # Create your models here.
 
 class GitRepository(models.Model):
@@ -31,7 +31,12 @@ class Project(models.Model):
     maintainer = models.ForeignKey(Maintainer, on_delete=models.SET_NULL, null=True, blank=True)    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+    documentationSection = models.CharField(
+        max_length=3,
+        choices=DocSection.choices,
+        default=DocSection.PLATFORM
+    )
+
     def __str__(self):
         return self.name
     
