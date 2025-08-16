@@ -20,16 +20,30 @@ class CustomUserCreationForm(UserCreationForm):
     Formulario personalizado para la creación de usuarios.
 
     Hereda de :class:`django.contrib.auth.forms.UserCreationForm` y añade 
-    un campo de captcha para la verificación adicional al registrar un usuario.
+    un campo adicional de captcha para la verificación al registrar un usuario.
 
     Attributes
     ----------
-    password1 : forms.CharField
-        Campo para la contraseña, con un widget de tipo PasswordInput.
-    password2 : forms.CharField
-        Campo para confirmar la contraseña, con un widget de tipo PasswordInput.
-    captcha_input : forms.CharField
+    password1 : django.forms.CharField
+        Campo para la contraseña, con un widget de tipo ``PasswordInput``.
+    password2 : django.forms.CharField
+        Campo para confirmar la contraseña, con un widget de tipo ``PasswordInput``.
+    captcha_input : django.forms.CharField
         Campo adicional para introducir un código de verificación (captcha).
+
+    Example
+    -------
+    .. code-block:: python
+
+        form = CustomUserCreationForm(data={
+            'username': 'usuario',
+            'email': 'correo@ejemplo.com',
+            'password1': 'contraseña123',
+            'password2': 'contraseña123',
+            'captcha_input': 'ABC123'
+        })
+        if form.is_valid():
+            form.save()
     """
 
     password1 = forms.CharField(widget=forms.PasswordInput)
@@ -41,6 +55,13 @@ class CustomUserCreationForm(UserCreationForm):
         Metadatos del formulario.
 
         Define el modelo y los campos utilizados para la creación de usuarios.
+
+        Attributes
+        ----------
+        model : django.db.models.Model
+            El modelo de usuario configurado en el proyecto.
+        fields : list
+            Campos incluidos en el formulario: ``username`` y ``email``.
         """
         model = User
         fields = ['username', 'email']
@@ -58,10 +79,28 @@ class CustomUserChangeForm(forms.ModelForm):
     Meta.model : CustomUser
         Modelo de usuario personalizado definido en ``models.py``.
     Meta.fields : list
-        Lista de campos que pueden ser modificados.
+        Lista de campos que pueden ser modificados en el perfil.
+
+    Example
+    -------
+    .. code-block:: python
+
+        user = CustomUser.objects.get(username='usuario')
+        form = CustomUserChangeForm(instance=user, data={
+            'username': 'nuevo_usuario',
+            'email': 'nuevo@correo.com',
+            'bio': 'Desarrollador Django'
+        })
+        if form.is_valid():
+            form.save()
     """
 
     class Meta:
+        """
+        Metadatos del formulario.
+
+        Define el modelo de usuario y los campos que serán editables.
+        """
         model = CustomUser
         fields = ['username', 'email', 'avatar', 'bio', 'role', 'github_profile']
 
@@ -75,12 +114,24 @@ class CustomAuthenticationForm(AuthenticationForm):
 
     Attributes
     ----------
-    username : forms.CharField
+    username : django.forms.CharField
         Campo que permite autenticación usando email o nombre de usuario.
-    password : forms.CharField
-        Campo de contraseña con widget de tipo PasswordInput.
-    remember_me : forms.BooleanField
+    password : django.forms.CharField
+        Campo de contraseña con widget de tipo ``PasswordInput``.
+    remember_me : django.forms.BooleanField
         Checkbox opcional para mantener la sesión iniciada.
+
+    Example
+    -------
+    .. code-block:: python
+
+        form = CustomAuthenticationForm(data={
+            'username': 'usuario',
+            'password': 'contraseña123',
+            'remember_me': True
+        })
+        if form.is_valid():
+            user = form.get_user()
     """
 
     username = forms.CharField(
